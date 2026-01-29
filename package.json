@@ -1,0 +1,24 @@
+{
+  "name": "json-generator-utility",
+  "version": "1.0.0",
+  "description": "CLI tool to generate fake JSON data from schema files using Faker.js",
+  "type": "module",
+  "main": "generate.js",
+  "bin": {
+    "json-generate": "./generate.js"
+  },
+  "scripts": {
+    "generate": "node generate.js"
+  },
+  "keywords": [
+    "json",
+    "faker",
+    "generator",
+    "mock-data",
+    "cli"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "^9.0.0"
+  }
+}

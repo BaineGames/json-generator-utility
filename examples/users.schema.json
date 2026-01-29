@@ -1,0 +1,44 @@
+{
+  "count": 10,
+  "filename": "user-{{index}}.json",
+  "template": {
+    "id": { "$faker": "string.uuid" },
+    "name": { "$faker": "person.fullName" },
+    "email": { "$faker": "internet.email" },
+    "age": { "$faker": "number.int", "args": { "min": 18, "max": 80 } },
+    "status": "active",
+    "role": { "$oneOf": ["admin", "user", "guest"] },
+    "bio": {
+      "$nullable": {
+        "probability": 0.3,
+        "value": { "$faker": "lorem.paragraph" }
+      }
+    },
+    "addresses": {
+      "$array": {
+        "min": 10,
+        "max": 30,
+        "element": {
+          "street": { "$faker": "location.streetAddress" },
+          "city": { "$faker": "location.city" },
+          "country": { "$faker": "location.country" },
+          "zipCode": { "$faker": "location.zipCode" }
+        }
+      }
+    },
+    "tags": {
+      "$array": {
+        "count": 3,
+        "element": { "$faker": "word.noun" }
+      }
+    },
+    "createdAt": { "$faker": "date.past" },
+    "settings": {
+      "theme": { "$oneOf": ["light", "dark", "system"] },
+      "notifications": {
+        "email": { "$faker": "datatype.boolean" },
+        "push": { "$faker": "datatype.boolean" }
+      }
+    }
+  }
+}
